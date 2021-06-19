@@ -5,3 +5,5 @@
 Trang web sẽ hiễn thị ở port 4200 
 
 Chú ý quan trọng : Nếu front-end khi chạy không thành công thì vui lòng xóa folder node_modules đi , sau đó dùng lệnh : npm install để tải lại . Rồi dùng ng serve , phần front-end sẽ chạy được .
+
+Video demo về sản phẩm : https://www.youtube.com/watch?v=mfA3QxQEiP0
