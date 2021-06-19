@@ -1,0 +1,18 @@
+<div style="margin-top: 100px; height: 450px;">
+        <button class = "btn-light float-right" (click)= "giohang()"> Giỏ hàng ({{slgh}})<i class="fa fa-shopping-cart" aria-hidden="true"></i> </button>
+
+    
+    <div class="row" style="margin-left: 10%; width: 80%">
+        <div class="col-4">
+            <img src={{product.hinhanh}} class="img-fluid" atl="Hình ảnh sản phẩm">
+        </div>
+        <div class="col-8">
+            <h1>{{product.tensanpham}}</h1>
+            <h3>Đơn giá: {{product.dongia}}</h3>
+            <h3 *ngIf="product.soluong >= 1">Tình trạng: Còn hàng</h3>
+            <h3 style="color: red;" *ngIf="product.soluong < 1">Tình trạng: Hết hàng</h3>
+            Số lượng: <input type = "number" [(ngModel)] = "sl">
+            <button type="button" (click)="themvaogio()" class="btn btn-info">Thêm vào giỏ</button>
+        </div>
+    </div>
+</div>

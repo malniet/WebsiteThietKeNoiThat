@@ -1,0 +1,26 @@
+<div style="margin-top: 100px; min-height: 580px; height: fit-content;">
+    <button class = "btn-light float-right" (click)= "giohang()"> Giỏ hàng ({{slgh}})<i class="fa fa-shopping-cart" aria-hidden="true"></i> </button><br>
+    <div class="row" >
+        <div class="col-3">
+            <h1>Danh mục</h1>
+            <div>
+                <ul class="list-group"  *ngFor="let cate of categories">
+                    <li class="list-group-item"><a href="#" (click)="loadByCate($event,cate.id)">{{cate.tendanhmuc}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <h1>Danh sách sản phẩm</h1>
+            <div style="display: inline-block;" *ngFor="let product of productsview">
+                <div class="card" style="width: 15rem;">
+                    <img class="card-img-top" style="height: 280px;" src={{product.hinhanh}} alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{product.tensanpham}}</h5>
+                      <p class="card-text">Đơn giá: {{product.dongia}}</p>
+                      <a href="#/chitiet/{{product.id}}" class="btn btn-primary">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

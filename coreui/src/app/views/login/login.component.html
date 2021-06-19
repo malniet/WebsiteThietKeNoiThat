@@ -1,0 +1,31 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                  <h1>Đăng nhập</h1>
+                  <div class="row">
+                    <div class = "col">
+                      <span style="display: inline;" class="input-group-text"><i class="icon-user"></i></span><input style="display: inline;" type="text" style="display: inline;" [(ngModel)]="admin.taikhoan" placeholder="Tài khoản">
+                      <span style="display: inline;" class="input-group-text"><i class="icon-lock" ></i></span><input style="display: inline;" type="password" [(ngModel)]="admin.matkhau" placeholder="Mật khẩu">
+                    </div>
+                    <div class = "col">
+                      <img src="../../../assets/img/ad.png" alt="">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="button" (click)="login()" class="btn btn-primary px-4">Đăng nhập</button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

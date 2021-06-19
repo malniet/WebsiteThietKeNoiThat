@@ -1,0 +1,35 @@
+<div style="margin-top: 120px; min-height: 400px; height: fit-content; width: 80%;margin-left: 10%;">
+    <div class="row">
+        <div class= "col-6">
+            <h1>Giỏ hàng của bạn</h1>
+            <div *ngFor="let item of cart">
+                <div class="card border-success mb-3" style="max-width: 30rem;">
+                    <div class="card-header"></div>
+                    <div class="card-body text-success">
+                      <h5 class="card-title">{{item.tensanpham}}</h5>
+                      <p class="card-text">Số lượng: {{item.soluong}}; Đơn giá: {{item.dongia}}</p>
+                      <button class="btn-info" (click)="delete(item.idP)">Xóa</button>
+                    </div>
+                  </div>
+            </div>
+            <h2>Tổng giá: {{tong}}</h2>
+        </div>
+        <div class= "col-6">
+            <h1>Nhập thông tin nhận hàng</h1>
+            <div class="form-group">
+                <label>Họ và tên người nhận hàng*</label>
+                <input type="text" style="width: 300px; height: 40px;" [(ngModel)]="bill.hovaten">
+            </div>
+            <div class="form-group">
+                <label>Địa chỉ người nhận hàng*</label>
+                <input type="text" style="width: 300px; height: 40px;" [(ngModel)]="bill.diachi">
+            </div>
+            <div class="form-group">
+                <label>Số điện thoại người nhận hàng*</label>
+                <input type="text" style="width: 300px; height: 40px;" [(ngModel)]="bill.sdt">
+            </div>
+            <button class="btn-info" style="width: 300px;height: 40px;" (click)="checkout()">Thanh toán</button>
+        </div>
+    </div>
+
+</div>

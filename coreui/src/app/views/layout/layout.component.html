@@ -1,0 +1,96 @@
+
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#/home">MALNIET STORE</a>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#/sanpham">Sản phẩm</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" *ngIf="loged == 0" href="#about" (click)="openModalLogin($event)">Đăng nhập</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" *ngIf="loged == 0" href="#/dangky">Đăng Ký</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="cursor: pointer" *ngIf="loged == 1">Chào mừng {{user.hovaten}}</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" *ngIf="loged == 1" (click)="dangxuat($event)" href="#/dangky">Đăng Xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div fxFlex fxLayout="Column">
+            <router-outlet></router-outlet>
+        </div>
+        
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Địa chỉ của tôi</h4>
+                        <p class="lead mb-0">
+                            191 Sơn Thông Khóm 10 Phường 9 Thành Phố Trà Vinh
+                            <br />
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Liên hệ: 032 864 8250</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fa-fw fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright © Malniet Website 2021</small></div>
+        </div>
+        <div bsModal #logModal="bs-modal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document" >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"> Đăng nhập </h5>
+                  <button type="button" (click)="hideAllModal()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <main class="main d-flex align-items-center">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-md-8 mx-auto">
+                              <div class="card-group">
+                                <div class="card p-4">
+                                  <div class="card-body">
+                                      <h1>Đăng nhập</h1>
+                                      <div class="row">
+                                          <h2 style="color: red;">{{message}}</h2>
+                                        <div class = "col">
+                                          <span style="display: inline;" class="input-group-text"><i class="icon-user"></i></span><input style="display: inline;" type="text" style="display: inline;" [(ngModel)]="user.taikhoan" placeholder="Tài khoản"><br><br>
+                                          <span style="display: inline;" class="input-group-text"><i class="icon-lock" ></i></span><input style="display: inline;" type="password" [(ngModel)]="user.matkhau" placeholder="Mật khẩu">
+                                        </div>
+                                      </div>
+                                      <div class="row" style="margin-top: 30px;">
+                                        <div class="col-6">
+                                          <button type="button" (click)="login()" class="btn btn-primary px-4">Đăng nhập</button>
+                                        </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </main>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click) ="hideAllModal()">Đóng</button>
+                </div>
+              </div>
+            </div>
+          </div>
+       

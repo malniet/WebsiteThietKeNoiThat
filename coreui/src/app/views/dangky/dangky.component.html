@@ -1,0 +1,97 @@
+<div style="margin-top: 100px">
+    <div class="limiter">
+		<div class="container-login100" style="background-image: url('../../../assets/img/dang-ky.jpg');">
+			<div *ngIf= "manhinh == 0" class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Nhập địa chỉ gmail
+				</span>
+				<br />
+				<form class="login100-form validate-form p-b-33 p-t-5">
+                    <h2 style="color: red;text-align: center;">{{messageError}}</h2>
+					<div class="wrap-input100 validate-input">
+						<input [(ngModel)]="emailk" class="input100" type="text" name="email" placeholder="Vui lòng nhập địa chỉ Email ...">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="container-login100-form-btn m-t-32">
+						<button (click)="sendemail()" class="login100-form-btn">
+							Tiếp theo =>
+						</button>
+					</div>
+
+				</form>
+            </div>
+            <div *ngIf= "manhinh == 1" class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Nhập mã xác nhận
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5">
+                    <h2 style="color: red;text-align: center;">{{messageError}}</h2>
+					<div class="wrap-input100 validate-input">
+						<input [(ngModel)]="mxn" class="input100" type="text" name="mxn" placeholder="Mã xác nhận">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="container-login100-form-btn m-t-32">
+						<button (click)="xacnhanma()" class="login100-form-btn">
+							Tiếp theo ->
+						</button>
+					</div>
+
+				</form>
+            </div>
+            <div *ngIf= "manhinh == 2" class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Trang đăng ký
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5">
+                    <h3 style="color: red;text-align: center;">{{messageError}}</h3>
+					<div class="wrap-input100 validate-input">
+						<input [(ngModel)]="user.hovaten" class="input100" type="text" name="hvt" placeholder="Họ và tên">
+						<span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input">
+						<input [(ngModel)]="user.taikhoan" class="input100" type="text" name="tk" placeholder="Tài khoản">
+						<span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input">
+						<input type="password" [(ngModel)]="user.matkhau" class="input100" name="mk" placeholder="Mật khẩu">
+						<span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input">
+						<input type="password" [(ngModel)]="matkhau" class="input100" name="nlmk" placeholder="Nhập lại mật khẩu">
+						<span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input">
+						<input [(ngModel)]="user.diachi" class="input100" type="text" name="diachi" placeholder="Địa chỉ">
+						<span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input">
+						<input type="text" [(ngModel)]="user.sdt" class="input100" name="sdt" placeholder="Số điện thoại">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="container-login100-form-btn m-t-32">
+						<button (click)="dky()" class="login100-form-btn">
+							Đăng ký
+						</button>
+					</div>
+
+				</form>
+            </div>
+            <div *ngIf= "manhinh == 3" class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Đăng ký thành công !
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5">
+					<div class="container-login100-form-btn m-t-32">
+						<button (click)="ok()" class="login100-form-btn">
+							Kết thúc
+						</button>
+					</div>
+
+				</form>
+            </div>
+		</div>
+	</div>
+</div>
+
+	
+	

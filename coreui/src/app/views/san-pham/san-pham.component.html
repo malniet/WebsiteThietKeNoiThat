@@ -1,0 +1,59 @@
+<div>
+    <h1 style="font-weight: bold;display: inline;">Danh sách sản phẩm</h1><button class="btn btn-primary" (click)="openAddModal()" style="width: 200px; height: 40px;margin-left: 20px;"><h3>Thêm</h3></button>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-bordered table-striped">
+            <thead class="bg-dark">
+                <tr>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Tùy chỉnh</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of products">
+                    <td>{{row.id}}</td>
+                    <td>{{row.tensanpham}}</td>
+                    <td>
+                        <button class="btn btn-success" (click)="openEdit(row.id)"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-danger" (click)="delete(row.id)"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div bsModal #mdModal="bs-modal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{temp}} sản phẩm</h5>
+          <button type="button" (click)="hideAllModal()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2 style="color:red">{{message}}</h2>
+          <div class="form-group">
+            <img style="width: 80%; margin-left: 10%;" src={{imgUrl}} class="img-fluid" >
+            
+            <div class="input-group">
+                <label>Ảnh sản phẩm*:</label><input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+            </div>
+        </div>
+          <input type="text" style="width: 80%;margin-left:10%" placeholder="Tên sản phẩm" [(ngModel)]="Product.tensanpham"><br>
+          <input type="number" style="width: 80%;margin-left:10%; margin-top: 15px;" placeholder="Đơn giá" [(ngModel)]="Product.dongia">
+          <input type="number" style="width: 80%;margin-left:10%" placeholder="Số lượng" [(ngModel)]="Product.soluong"><br>
+          <label style="margin-left: 10%;">Loại sản phẩm*:</label>
+          <select style="width: 200px; margin-top: 15px;" [(ngModel)]="Product.loaisanpham">
+              <option *ngFor="let item of categories" value="{{item.id}}">{{item.tendanhmuc}}</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click) ="hideAllModal()">Đóng</button>
+          <button type="button" class="btn btn-primary" (click)="save()">Thay đổi</button>
+        </div>
+      </div>
+    </div>
+  </div>

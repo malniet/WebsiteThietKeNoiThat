@@ -1,0 +1,46 @@
+<div>
+    <h1 style="font-weight: bold;display: inline;">Danh sách danh mục</h1><button class="btn btn-primary" (click)="openAddModal()" style="width: 200px; height: 40px;margin-left: 20px;"><h3>Thêm</h3></button>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-bordered table-striped">
+            <thead class="bg-dark">
+                <tr>
+                    <th>Mã danh mục</th>
+                    <th>Tên danh mục</th>
+                    <th>Tùy chỉnh</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of categories">
+                    <td>{{row.id}}</td>
+                    <td>{{row.tendanhmuc}}</td>
+                    <td>
+                        <button class="btn btn-success" (click)="openEdit(row.id)"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-danger" (click)="delete(row.id)"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div bsModal #mdModal="bs-modal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{temp}} danh mục</h5>
+          <button type="button" (click)="hideAllModal()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <h2 style="color:red">{{message}}</h2>
+          <input type="text" placeholder="Tên danh mục" [(ngModel)]="category.tendanhmuc">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click) ="hideAllModal()">Đóng</button>
+          <button type="button" class="btn btn-primary" (click)="save()">Thay đổi</button>
+        </div>
+      </div>
+    </div>
+  </div>

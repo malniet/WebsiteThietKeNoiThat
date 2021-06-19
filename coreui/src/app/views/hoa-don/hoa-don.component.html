@@ -1,0 +1,57 @@
+<div>
+    <h1 style="font-weight: bold;display: inline;">Danh sách hóa đơn</h1>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-bordered table-striped">
+            <thead class="bg-dark">
+                <tr>
+                    <th>Ngày tạo</th>
+                    <th>Tổng</th>
+                    <th>Họ và tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Chi tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of hoadons">
+                    <td>{{row.ngaytao}}</td>
+                    <td>{{row.tong}}</td>
+                    <td>{{row.hovaten}}</td>
+                    <td>{{row.sdt}}</td>
+                    <td>{{row.diachi}}</td>
+                    <td>
+                        <button class="btn btn-success" (click)="openEdit(row.id)"><i class="fa fa-edit"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div bsModal #mdModal="bs-modal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Chi tiết hóa đơn</h5>
+          <button type="button" (click)="hideAllModal()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div *ngFor="let item of billdetails">
+                <div class="card border-success mb-3" style="max-width: 30rem;">
+                    <div class="card-header"></div>
+                    <div class="card-body text-success">
+                      <h5 class="card-title">{{item.tensanpham}}</h5>
+                      <p class="card-text">Số lượng: {{item.soluong}}; Đơn giá: {{item.dongia}}</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click) ="hideAllModal()">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
